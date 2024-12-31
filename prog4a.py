@@ -1,3 +1,4 @@
+# Import necessary libraries
 import tensorflow as tf
 from tensorflow.keras import layers, models
 from tensorflow.keras.datasets import mnist
@@ -20,6 +21,7 @@ x_test = x_test.reshape((x_test.shape[0], 28, 28, 1))
 y_train = to_categorical(y_train, 10)
 y_test = to_categorical(y_test, 10)
 
+# Build the CNN model
 model = models.Sequential()
 
 # Convolutional layer 1
@@ -35,11 +37,22 @@ model.add(layers.Flatten())
 model.add(layers.Dense(64, activation='relu'))
 model.add(layers.Dense(10, activation='softmax'))
 
-model.compile(optimizer='adam',
-              loss='categorical_crossentropy',
-              metrics=['accuracy'])
+# Compile the model by specifying the optimizer, loss function, and evaluation metric
+model.compile(optimizer='adam',                # Adam optimizer for efficient training
+              loss='categorical_crossentropy', # Cross-entropy loss for multi-class classification
+              metrics=['accuracy'])            # Use accuracy as the evaluation metric
 
-history = model.fit(x_train, y_train, epochs=10, batch_size=64, validation_split=0.2)
+# Train the model
+history = model.fit(x_train,                   # Training images
+                    y_train,                   # Training labels
+                    epochs=10,                 # Number of epochs
+                    batch_size=64,             # Batch size for gradient updates
+                    validation_split=0.2)      # Use 20% of training data for validation
 
+# Evaluate the model on the test dataset
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
+
+# Print the test accuracy
 print(f"Test accuracy: {test_acc:.2f}")
+
+# Test accuracy: 0.99
