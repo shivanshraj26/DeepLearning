@@ -76,3 +76,5 @@ results = model.evaluate(x_test, one_hot_test_labels)
 
 # Print the results
 print(f"Test Loss: {results[0]}, Test Accuracy: {results[1]}")
+
+# Test Loss: 1.111000657081604, Test Accuracy: 0.7804986834526062
