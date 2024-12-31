@@ -1,3 +1,4 @@
+# Import necessary libraries
 import tensorflow as tf
 from tensorflow.keras.datasets import imdb
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -37,11 +38,8 @@ history = model.fit(x_train, y_train,
 
 # Evaluate the model on the test dataset
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
+
+# Print the test accuracy
 print(f"Test accuracy: {test_acc:.2f}")
 
 # Test accuracy: 0.84
-plt.title('Model Loss')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-plt.show()
