@@ -9,8 +9,8 @@ from tensorflow.keras.datasets import imdb
 (X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=10000)
 
 # Preprocess the data: Pad sequences to ensure uniform input size
-train_padded = pad_sequences(X_train, maxlen=100, padding='post', truncating='post')
-test_padded = pad_sequences(X_test, maxlen=100, padding='post', truncating='post')
+X_train = pad_sequences(X_train, maxlen=100, padding='post', truncating='post')
+X_test = pad_sequences(X_test, maxlen=100, padding='post', truncating='post')
 
 # Build the RNN model
 model = Sequential([
@@ -26,12 +26,12 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 # Train the model
-model.fit(train_padded, y_train,
+model.fit(X_train, y_train,
           epochs=10,
-          validation_data=(test_padded, y_test))
+          validation_data=(X_test, y_test))
 
 # Evaluate the model on test data
-loss, accuracy = model.evaluate(test_padded, y_test, verbose=2)
+loss, accuracy = model.evaluate(X_test, y_test, verbose=2)
 
 # Print the test accuracy
 print(f"Test Accuracy: {accuracy:.2f}")
