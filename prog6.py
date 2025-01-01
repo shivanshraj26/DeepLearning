@@ -6,13 +6,11 @@ from tensorflow.keras.layers import Embedding, LSTM, Dense, Dropout
 from tensorflow.keras.datasets import imdb
 
 # Load the IMDb dataset
-vocab_size = 10000  # Consider the top 10,000 most frequent words
-max_length = 100    # Maximum review length (truncate or pad shorter reviews)
-(train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=vocab_size)
+(train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=10000)
 
 # Preprocess the data: Pad sequences to ensure uniform input size
-train_padded = pad_sequences(train_data, maxlen=max_length, padding='post', truncating='post')
-test_padded = pad_sequences(test_data, maxlen=max_length, padding='post', truncating='post')
+train_padded = pad_sequences(train_data, maxlen=100, padding='post', truncating='post')
+test_padded = pad_sequences(test_data, maxlen=100, padding='post', truncating='post')
 
 # Build the RNN model
 model = Sequential([
