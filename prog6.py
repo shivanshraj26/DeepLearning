@@ -14,7 +14,7 @@ test_padded = pad_sequences(test_data, maxlen=100, padding='post', truncating='p
 
 # Build the RNN model
 model = Sequential([
-    Embedding(input_dim=vocab_size, output_dim=32, input_length=max_length),  # Embedding layer
+    Embedding(input_dim=vocab_size, output_dim=32, input_length=100),  # Embedding layer
     LSTM(64),  # LSTM layer with 64 units
     Dropout(0.5),  # Dropout for regularization
     Dense(1, activation='sigmoid')  # Output layer for binary classification
