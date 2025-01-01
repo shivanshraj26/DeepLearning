@@ -69,6 +69,8 @@ history = model.fit(
 loss, accuracy = model.evaluate(test_dataset)
 print(f"Test Accuracy: {accuracy:.2f}")
 
+# Test Accuracy: 0.84
+
 # Plot training and validation accuracy/loss over epochs
 acc = history.history['accuracy']
 val_acc = history.history['val_accuracy']
