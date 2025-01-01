@@ -41,16 +41,16 @@ plot_samples(data_train.map(preprocess_image))
 
 # Build the CNN model
 model = Sequential([
-    Conv2D(32, (3, 3), activation='relu', input_shape=(IMG_SIZE, IMG_SIZE, 3)),
-    MaxPooling2D(2, 2),
-    Conv2D(64, (3, 3), activation='relu'),
-    MaxPooling2D(2, 2),
-    Conv2D(128, (3, 3), activation='relu'),
-    MaxPooling2D(2, 2),
-    Flatten(),
-    Dense(512, activation='relu'),
-    Dropout(0.5),
-    Dense(1, activation='sigmoid')  # Binary classification (sigmoid activation)
+    Conv2D(32, (3, 3), activation='relu', input_shape=(IMG_SIZE, IMG_SIZE, 3)),  # First convolutional layer: 32 filters, 3x3 kernel, ReLU activation
+    MaxPooling2D(2, 2),  # Max pooling with a 2x2 window
+    Conv2D(64, (3, 3), activation='relu'),  # Second convolutional layer: 64 filters, 3x3 kernel, ReLU activation
+    MaxPooling2D(2, 2),  # Max pooling with a 2x2 window
+    Conv2D(128, (3, 3), activation='relu'),  # Third convolutional layer: 128 filters, 3x3 kernel, ReLU activation
+    MaxPooling2D(2, 2),  # Max pooling with a 2x2 window
+    Flatten(),  # Flatten feature maps into a 1D vector
+    Dense(512, activation='relu'),  # Fully connected layer with 512 units and ReLU activation
+    Dropout(0.5),  # Dropout to prevent overfitting
+    Dense(1, activation='sigmoid')  # Output layer with 1 unit (binary classification) and sigmoid activation
 ])
 
 # Compile the model
