@@ -47,7 +47,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 model = RandomForestClassifier(n_estimators=150, max_depth=7, random_state=21)  # Modified n_estimators and max_depth
 
 # Training the model
-model.fit(X_train, y_train,)
+model.fit(X_train, y_train)
 
 # Predicting on the test set
 y_pred = model.predict(X_test)
