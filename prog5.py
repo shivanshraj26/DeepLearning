@@ -60,9 +60,9 @@ model.compile(optimizer='adam',  # Adam optimizer for efficient training
 
 # Train the model
 history = model.fit(
-    train_dataset,
-    validation_data=test_dataset,
-    epochs=10
+    train_dataset,  # Use training data for fitting
+    validation_data=test_dataset,  # Validate performance using test data
+    epochs=10  # Number of epochs
 )
 
 # Evaluate the model on the test dataset
