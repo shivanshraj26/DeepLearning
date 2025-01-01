@@ -54,9 +54,9 @@ model = Sequential([
 ])
 
 # Compile the model
-model.compile(optimizer='adam',
-              loss='binary_crossentropy',
-              metrics=['accuracy'])
+model.compile(optimizer='adam',  # Adam optimizer for efficient training
+              loss='binary_crossentropy',  # Binary Cross-Entropy loss for binary class classification
+              metrics=['accuracy'])  # Use accuracy as the evaluation metric
 
 # Train the model
 history = model.fit(
