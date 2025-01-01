@@ -70,26 +70,3 @@ loss, accuracy = model.evaluate(test_dataset)
 print(f"Test Accuracy: {accuracy:.2f}")
 
 # Test Accuracy: 0.84
-
-# Plot training and validation accuracy/loss over epochs
-acc = history.history['accuracy']
-val_acc = history.history['val_accuracy']
-loss = history.history['loss']
-val_loss = history.history['val_loss']
-epochs = range(len(acc))
-
-# Plot accuracy
-plt.figure(figsize=(12, 8))
-plt.plot(epochs, acc, 'r', label='Training Accuracy')
-plt.plot(epochs, val_acc, 'b', label='Validation Accuracy')
-plt.title('Training and Validation Accuracy')
-plt.legend()
-
-# Plot loss
-plt.figure(figsize=(12, 8))
-plt.plot(epochs, loss, 'r', label='Training Loss')
-plt.plot(epochs, val_loss, 'b', label='Validation Loss')
-plt.title('Training and Validation Loss')
-plt.legend()
-
-plt.show()
